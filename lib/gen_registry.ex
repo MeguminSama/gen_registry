@@ -204,7 +204,7 @@ defmodule GenRegistry do
     Process.flag(:trap_exit, true)
 
     worker_type =
-      case worker_module.module_info[:attributes][:behaviour] do
+      case worker_module.module_info()[:attributes][:behaviour] do
         [:supervisor] -> :supervisor
         _ -> :worker
       end
